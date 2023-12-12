@@ -66,7 +66,7 @@ JNIEXPORT jobjectArray JNICALL Java_libraryInterfaces_RotationInterface_applyRot
 
 
 
-
+    rows = result.size();
     jobjectArray resultArray = env->NewObjectArray(rows, pixelArrayClass, nullptr);
 
     for (jsize i = 0; i < rows; ++i) {

@@ -25,7 +25,7 @@ public class PhotoController {
             @RequestParam("hueAmount") float hueAmount,
             @RequestParam("saturationAmount") float saturationAmount,
             @RequestParam("imageFile") MultipartFile imageFile
-    ) {
+    ) throws IOException {
         return photoEffectService.applyHueSaturationEffect(hueAmount, saturationAmount, imageFile);
     }
 
@@ -80,7 +80,7 @@ public class PhotoController {
     public ResponseEntity<byte[]> applyRotationEffect(
             @RequestParam("value") int value,
             @RequestParam("imageFile") MultipartFile imageFile
-    ) throws IOException {
+    ) throws IOException, IllegalParameterException {
         return photoEffectService.applyRotationEffect(value, imageFile);
     }
 

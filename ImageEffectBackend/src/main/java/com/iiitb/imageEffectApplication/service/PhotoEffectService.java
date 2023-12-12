@@ -13,6 +13,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import static libraryInterfaces.BrightnessInterface.applyBrightness;
 import static libraryInterfaces.ContrastInterface.applyContrast;
@@ -20,6 +23,7 @@ import static libraryInterfaces.DominantColourInterface.applyDominantColour;
 import static libraryInterfaces.FlipInterface.applyFlip;
 import static libraryInterfaces.GaussianBlurInterface.applyGaussianBlur;
 import static libraryInterfaces.GrayscaleInterface.applyGrayscale;
+import static libraryInterfaces.HueSaturationInterface.applyHueSaturation;
 import static libraryInterfaces.InvertInterface.applyInvert;
 import static libraryInterfaces.RotationInterface.applyRotation;
 import static libraryInterfaces.SepiaInterface.applySepia;
@@ -33,17 +37,21 @@ public class PhotoEffectService {
     @Autowired
     private LoggingService loggingService;
 
-    public ResponseEntity<byte[]> applyHueSaturationEffect(float hueAmount, float saturationAmount, MultipartFile imageFile) {
+    public ResponseEntity<byte[]> applyHueSaturationEffect(float hueAmount, float saturationAmount, MultipartFile imageFile) throws IOException {
+        Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
         try {
-            Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
+
             String imageName = imageFile.getOriginalFilename();
 
 
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
-
+            HueSaturation hueSaturation = new HueSaturation();
+            hueSaturation.setParameter("saturation",saturationAmount);
+            hueSaturation.setParameter("hue",hueAmount);
+            Pixel[][] modifiedImage = hueSaturation.apply(inputImage,imageName,loggingService); // Replace this with actual modified image
+//            System.out.println("HII");
             // ACTUAL WORK ENDS HERE
 
 
@@ -52,7 +60,10 @@ public class PhotoEffectService {
         } catch (IOException e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (IllegalParameterException e) {
+            System.out.println(e.getMessage());
         }
+        return processingUtils.postProcessing(inputImage);
     }
 
     public ResponseEntity<byte[]> applyBrightnessEffect(float amount, MultipartFile imageFile) throws IllegalParameterException, IOException {
@@ -221,7 +232,33 @@ public class PhotoEffectService {
         }
     }
 
-    public ResponseEntity<byte[]> applyRotationEffect(int value, MultipartFile imageFile) throws IOException {
+    public static Pixel[][] flipMatrix(Pixel[][] matrix) {
+        // Transpose the matrix
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+
+        Pixel[][] transposed = new Pixel[cols][rows];
+
+        for (int i = 0; i < rows; ++i) {
+            for (int j = 0; j < cols; ++j) {
+                transposed[j][i] = matrix[i][j];
+            }
+        }
+
+        // Reverse the order of each row
+        for (int i = 0; i < cols; ++i) {
+            for (int j = 0; j < rows / 2; ++j) {
+                Pixel temp = transposed[i][j];
+                transposed[i][j] = transposed[i][rows - 1 - j];
+                transposed[i][rows - 1 - j] = temp;
+            }
+        }
+
+        return transposed;
+    }
+
+
+    public ResponseEntity<byte[]> applyRotationEffect(int value, MultipartFile imageFile) throws IOException, IllegalParameterException {
         Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
         try {
             String imageName = imageFile.getOriginalFilename();
@@ -233,11 +270,19 @@ public class PhotoEffectService {
             Rotation rotation = new Rotation();
             rotation.setParameterValue(value);
             Pixel[][] modifiedImage = rotation.apply(inputImage,imageName,loggingService); // Replace this with actual modified image
+                // ACTUAL WORK ENDS HERE
 
-            // ACTUAL WORK ENDS HERE
 
+                return processingUtils.postProcessing(modifiedImage);
 
-            return processingUtils.postProcessing(modifiedImage);
+//            System.out.println(inputImage.length);
+//            System.out.println(inputImage[0].length);
+//            System.out.println(modifiedImage.length);
+//            System.out.println(modifiedImage[0].length);
+//            // ACTUAL WORK ENDS HERE
+//
+//
+//            return processingUtils.postProcessing(modifiedImage);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -302,7 +347,8 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = applyDominantColour(inputImage); // Replace this with actual modified image
+            DominantColour dominantColour = new DominantColour();
+            Pixel[][] modifiedImage = dominantColour.apply(inputImage,imageName,loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 

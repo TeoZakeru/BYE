@@ -19,7 +19,7 @@ export class HueSaturationEffectComponent implements OnInit {
     private photoEffectService: PhotoEffectService,
     private sanitizer: DomSanitizer
   ) {
-    this.saturationAmount = 100;
+    this.saturationAmount = 50;
     this.hueAmount = 0;
   }
 

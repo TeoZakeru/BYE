@@ -54,7 +54,7 @@ JNIEXPORT jobjectArray JNICALL Java_libraryInterfaces_HueSaturationInterface_app
 
 
     // Call the function here
-    applyHueSaturation(imageVector, static_cast<float>(saturationValue), static_cast<float>(hueValue));
+    vector<vector<Pixel>>result = HueSaturation::applyHueSaturation(imageVector, static_cast<float>(saturationValue), static_cast<float>(hueValue));
 
 
 
@@ -70,11 +70,11 @@ JNIEXPORT jobjectArray JNICALL Java_libraryInterfaces_HueSaturationInterface_app
     jobjectArray resultArray = env->NewObjectArray(rows, pixelArrayClass, nullptr);
 
     for (jsize i = 0; i < rows; ++i) {
-        jsize cols = imageVector[i].size();
+        jsize cols = result[i].size();
         jobjectArray rowArray = env->NewObjectArray(cols, pixelClass, nullptr);
 
         for (jsize j = 0; j < cols; ++j) {
-            const Pixel &pixel = imageVector[i][j];
+            const Pixel &pixel = result[i][j];
             jobject pixelObj = env->AllocObject(pixelClass);
 
             env->SetIntField(pixelObj, env->GetFieldID(pixelClass, "r", "I"), pixel.r);

@@ -4,7 +4,13 @@
 #include "../Pixel.h"
 
 using namespace std;
-
-void applyHueSaturation(vector< vector<Pixel> > &image, float saturationValue, float hueValue);
-
+class HueSaturation{
+    public:
+    static vector<vector<Pixel>> applyHueSaturation(vector< vector<Pixel> > &image, float saturationValue, float hueValue);
+};
+struct PixelNew{
+    float h;
+    float s;
+    float v;
+};
 #endif

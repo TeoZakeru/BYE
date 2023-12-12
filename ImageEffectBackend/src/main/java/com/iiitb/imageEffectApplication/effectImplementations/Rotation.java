@@ -17,13 +17,13 @@ public class Rotation implements SingleValueDiscreteEffect {
             optionValues = "No Rotation";
         }
         if(this.parameterValue == 1){
-            optionValues = "Rotation by 90 degrees in clockwise diection";
+            optionValues = "Rotation by 90 degrees in clockwise direction";
         }
         if(this.parameterValue == 2){
-            optionValues = "Rotation by 180 degrees in clockwise diection";
+            optionValues = "Rotation by 180 degrees in clockwise direction";
         }
         if(this.parameterValue == 3){
-            optionValues = "Rotation by 270 degrees in clockwise diection";
+            optionValues = "Rotation by 270 degrees in clockwise direction";
         }
         loggingService.addLog(fileName,"Rotation",optionValues);
         return resultImage;
