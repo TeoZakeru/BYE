@@ -1,13 +1,13 @@
 #include "Grayscale.h"
 #include<iostream>
-// #include<bits/stdc++.h>
-// #include<unordered_map>
 using namespace std;
 
 vector<vector<Pixel>> Grayscale::applyGrayscale(vector<vector<Pixel>> &image) {
-    vector<vector<Pixel>> resultImage;
+    //applyGrayscale method in Grayscale class
+    vector<vector<Pixel>> resultImage;//the resultimage vector
+    //modifying each individual pixel's values one-by-one using nested for loops
     for(auto i:image){
-        vector<Pixel>resut;
+        vector<Pixel>resut;//temporary vector
         for(auto j:i){
             Pixel p;
             int avg = (j.r+j.g+j.b)/3;
@@ -19,5 +19,5 @@ vector<vector<Pixel>> Grayscale::applyGrayscale(vector<vector<Pixel>> &image) {
         resultImage.push_back(resut);
     }
 
-    return resultImage;
+    return resultImage;//returning the modified image vector
 }

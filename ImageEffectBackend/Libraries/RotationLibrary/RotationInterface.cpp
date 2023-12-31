@@ -57,7 +57,7 @@ JNIEXPORT jobjectArray JNICALL Java_libraryInterfaces_RotationInterface_applyRot
     // TODO
 
     vector<vector<Pixel>>result = Rotation::applyRotation(imageVector,value);
-
+    //getting the resultant vector
 
 
 

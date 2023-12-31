@@ -3,17 +3,19 @@ using namespace std;
 
 
 vector<vector<Pixel>> Contrast::applyContrast(vector<vector<Pixel>>& image, float amount) {
-  
-    std::vector<std::vector<Pixel>> resultImage;
+  //applyContrast method in Contrast class
+    std::vector<std::vector<Pixel>> resultImage;//the resultvector
+    //nested for loop that changes each individual pixel's rgb values one-by-one
 
     for (const auto& row : image) {
-        std::vector<Pixel> resultRow;
+        std::vector<Pixel> resultRow;//temporary vector
         for (const auto& pixel : row) {
             Pixel adjustedPixel;
             float factor=amount/100;
             adjustedPixel.r = static_cast<int>(factor *(pixel.r-128)+128);
             adjustedPixel.g = static_cast<int>(factor *(pixel.g-128)+128);
             adjustedPixel.b = static_cast<int>(factor *(pixel.b-128)+128);
+            //ensuring that the pixel's rgb vaues are within 0 to 255
             if(adjustedPixel.r>255){
                 adjustedPixel.r = 255;
             }
@@ -36,9 +38,6 @@ vector<vector<Pixel>> Contrast::applyContrast(vector<vector<Pixel>>& image, floa
         }
         resultImage.push_back(resultRow);
     }
-
-
-
-
-    return resultImage;
+    
+    return resultImage;//returning the modified image vector
 }

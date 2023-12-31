@@ -2,9 +2,11 @@
 using namespace std;
 
 vector<vector<Pixel>> Invert::applyInvert(vector<vector<Pixel>> &image){
-    vector<vector<Pixel>> resultImage;
+    //applyInvert method in Invert class
+    vector<vector<Pixel>> resultImage;//the resultimage vector
+    //modifying each individual pixel's values one-by-one using nested for loops
     for (auto &row:image){
-        vector<Pixel> resultRow;
+        vector<Pixel> resultRow;//temporary vector
         for (auto &pixel : row){
             Pixel adjustedPixel;
             adjustedPixel.r = static_cast<int>(255 - pixel.r);
@@ -15,5 +17,5 @@ vector<vector<Pixel>> Invert::applyInvert(vector<vector<Pixel>> &image){
         resultImage.push_back(resultRow);
     }
 
-    return resultImage;
+    return resultImage;//returning the modified image vector
 }

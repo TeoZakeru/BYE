@@ -55,6 +55,7 @@ JNIEXPORT jobjectArray JNICALL Java_libraryInterfaces_ContrastInterface_applyCon
 
     // Call the function here
     vector<vector<Pixel>>result = Contrast::applyContrast(imageVector,amount);
+    //getting the resultant image
     // TODO
 
 

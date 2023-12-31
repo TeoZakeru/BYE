@@ -56,7 +56,7 @@ JNIEXPORT jobjectArray JNICALL Java_libraryInterfaces_FlipInterface_applyFlip
     // Call the function here
     // TODO
     vector<vector<Pixel>> result = Flip::applyFlip(imageVector,horizontalFlipValue,verticalFlipValue);
-
+    //getting the resultant vector
 
 
 

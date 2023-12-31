@@ -42,24 +42,13 @@ vector<vector<Pixel>> Sharpen::applySharpen(vector<vector<Pixel>>& image, float 
     int w = image[0].size();
     float factor = amount / 100.0;
 
-    // Define a simple sharpening kernel
     vector<vector<int>> kernel = {{0, -1, 0}, {-1, 5, -1}, {0, -1, 0}};
-    
-    // vector<vector<int>> kernel = {
-    //     {-1, -1, -1, -1, -1},
-    //     {-1, -1, -1, -1, -1},
-    //     {-1, -1, 25, -1, -1},
-    //     {-1, -1, -1, -1, -1},
-    //     {-1, -1, -1, -1, -1}
-    // };
 
 
-    // Create a temporary image to store the convolved result
     vector<vector<Pixel>> result = convolve(image, kernel);
 
     
 
-    // Apply the factor to the result and update the original image
     for (int i = 0; i < h; ++i) {
         for (int j = 0; j < w; ++j) {
             
@@ -76,5 +65,5 @@ vector<vector<Pixel>> Sharpen::applySharpen(vector<vector<Pixel>>& image, float 
         }
     }
 
-    return image; // Return the sharpened image
+    return image;
 }

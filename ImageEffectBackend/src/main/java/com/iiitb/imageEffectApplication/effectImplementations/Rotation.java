@@ -6,11 +6,14 @@ import com.iiitb.imageEffectApplication.service.LoggingService;
 import libraryInterfaces.Pixel;
 import static libraryInterfaces.RotationInterface.applyRotation;
 
-public class Rotation implements SingleValueDiscreteEffect {
-    private int parameterValue;
+/*Rotation class implements SingleValueDiscreteEffect and to apply rotation effect. */
 
-    public Rotation(){}
+public class Rotation implements SingleValueDiscreteEffect {
+    private int parameterValue;// Parameter to store the rotation value
+
+    public Rotation(){}//Default constructor
     public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService){
+        //This method applies the rotation effect on the given image based on the given parameter value.
         Pixel[][] resultImage = applyRotation(image,this.parameterValue);
         String optionValues = "";
         if(this.parameterValue == 0){
@@ -25,14 +28,16 @@ public class Rotation implements SingleValueDiscreteEffect {
         if(this.parameterValue == 3){
             optionValues = "Rotation by 270 degrees in clockwise direction";
         }
-        loggingService.addLog(fileName,"Rotation",optionValues);
-        return resultImage;
+        loggingService.addLog(fileName,"Rotation",optionValues);// Add a log entry for the applied rotation effect.
+        return resultImage;// Return the result image.
     }
 
     public void setParameterValue(int parameterValue) throws IllegalParameterException{
+        /*This method sets the rotation parameter value, validating that it falls within a valid range.
+        checking if the brightness parameter value is within range of 0 to 3*/
         if (parameterValue < 0 || parameterValue > 3) {
             throw new IllegalParameterException("Not a valid option");
         }
-        this.parameterValue = parameterValue;
+        this.parameterValue = parameterValue;//Setting the parameter value
     }
 }

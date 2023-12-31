@@ -56,7 +56,7 @@ JNIEXPORT jobjectArray JNICALL Java_libraryInterfaces_InvertInterface_applyInver
     // Call the function here
     // TODO
     vector<vector<Pixel>>result = Invert::applyInvert(imageVector);
-
+    //getting the resultant vector
 
 
 

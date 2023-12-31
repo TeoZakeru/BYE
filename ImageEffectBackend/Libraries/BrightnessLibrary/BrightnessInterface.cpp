@@ -55,6 +55,7 @@ JNIEXPORT jobjectArray JNICALL Java_libraryInterfaces_BrightnessInterface_applyB
 
     // Call the function here
     vector<vector<Pixel>> result = Brightness::applyBrightness(imageVector,amount);
+    //getting the resultant image
     // TODO
 
 
