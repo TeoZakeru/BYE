@@ -9,22 +9,28 @@ below:
     HueSaturation Effect:
         Method: applyHueSaturationEffect(float hueAmount, float saturationAmount, MultipartFile imageFile)
         Applies a hue and saturation adjustment to the image.
+        Range - Hue : 0 - 360 (Default 0)
+              - Saturation : 0 - 100(Default 50)
 
     Brightness Effect:
         Method: applyBrightnessEffect(float amount, MultipartFile imageFile)
         Adjusts the brightness of the image.
+        Range : 0 - 200 (Default 100)
 
     Contrast Effect:
         Method: applyContrastEffect(float amount, MultipartFile imageFile)
         Adjusts the contrast of the image.
+        Range : 0 - 200 (Default 100) 
 
     Flip Effect:
         Method: applyFlipEffect(MultipartFile imageFile, int horizontalFlipValue, int verticalFlipValue)
         Flips the image horizontally and/or vertically.
+        Range : Horizontal, Vertical
 
     Gaussian Blur Effect:
         Method: applyGaussianBlurEffect(float radius, MultipartFile imageFile)
         Applies a Gaussian blur to the image.
+        Range : 0 - 50 (Default 10)
 
     Grayscale Effect:
         Method: applyGrayscaleEffect(MultipartFile imageFile)
@@ -37,6 +43,7 @@ below:
     Rotation Effect:
         Method: applyRotationEffect(int value, MultipartFile imageFile)
         Rotates the image by the specified angle (0,90,180 or 270 degrees)
+        Range : 0 degrees, 90 degrees, 180 degrees, 270 degrees
 
     Sepia Effect:
         Method: applySepiaEffect(MultipartFile imageFile)
@@ -45,6 +52,7 @@ below:
     Sharpen Effect:
         Method: applySharpenEffect(float amount, MultipartFile imageFile)
         Sharpens the image.
+        Range : 0 - 100 (Default 50)
 
     Dominant Colour Effect:
         Method: getDominantColour(MultipartFile imageFile)
