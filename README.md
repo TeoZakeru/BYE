@@ -61,13 +61,14 @@ operations. It provides the following functionalities:
     Retrieving logs within a specified timestamp range.
 
 Team Members:
-
-    Rajanala Sai Dheeraj - IMT2022093
-    Sreyas J - IMT2022554
-    A Nishith - IMT2022556
-    Mupparapu Koushik - IMT2022570
-    K S V Rohit - IMT2022576
     Swaroop A Ram Rayala - IMT2022587
+    K S V Rohit - IMT2022576
+    Mupparapu Koushik - IMT2022570
+    A Nishith - IMT2022556
+    Sreyas J - IMT2022554
+    Rajanala Sai Dheeraj - IMT2022093
+    
+    
 
 Contributions:
 
