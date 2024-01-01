@@ -6,49 +6,49 @@ The application provides several image processing effects for users to apply
 onto their images. The effects are also logged. These effects are described 
 below:
 
-HueSaturation Effect:
-    Method: applyHueSaturationEffect(float hueAmount, float saturationAmount, MultipartFile imageFile)
-    Applies a hue and saturation adjustment to the image.
+    HueSaturation Effect:
+        Method: applyHueSaturationEffect(float hueAmount, float saturationAmount, MultipartFile imageFile)
+        Applies a hue and saturation adjustment to the image.
 
-Brightness Effect:
-    Method: applyBrightnessEffect(float amount, MultipartFile imageFile)
-    Adjusts the brightness of the image.
+    Brightness Effect:
+        Method: applyBrightnessEffect(float amount, MultipartFile imageFile)
+        Adjusts the brightness of the image.
 
-Contrast Effect:
-    Method: applyContrastEffect(float amount, MultipartFile imageFile)
-    Adjusts the contrast of the image.
+    Contrast Effect:
+        Method: applyContrastEffect(float amount, MultipartFile imageFile)
+        Adjusts the contrast of the image.
 
-Flip Effect:
-    Method: applyFlipEffect(MultipartFile imageFile, int horizontalFlipValue, int verticalFlipValue)
-    Flips the image horizontally and/or vertically.
+    Flip Effect:
+        Method: applyFlipEffect(MultipartFile imageFile, int horizontalFlipValue, int verticalFlipValue)
+        Flips the image horizontally and/or vertically.
 
-Gaussian Blur Effect:
-    Method: applyGaussianBlurEffect(float radius, MultipartFile imageFile)
-    Applies a Gaussian blur to the image.
+    Gaussian Blur Effect:
+        Method: applyGaussianBlurEffect(float radius, MultipartFile imageFile)
+        Applies a Gaussian blur to the image.
 
-Grayscale Effect:
-    Method: applyGrayscaleEffect(MultipartFile imageFile)
-    Converts the image to grayscale.
+    Grayscale Effect:
+        Method: applyGrayscaleEffect(MultipartFile imageFile)
+        Converts the image to grayscale.
 
-Invert Effect:
-    Method: applyInvertEffect(MultipartFile imageFile)
-    Inverts the colors of the image.
+    Invert Effect:
+        Method: applyInvertEffect(MultipartFile imageFile)
+        Inverts the colors of the image.
 
-Rotation Effect:
-    Method: applyRotationEffect(int value, MultipartFile imageFile)
-    Rotates the image by the specified angle (0,90,180 or 270 degrees)
+    Rotation Effect:
+        Method: applyRotationEffect(int value, MultipartFile imageFile)
+        Rotates the image by the specified angle (0,90,180 or 270 degrees)
 
-Sepia Effect:
-    Method: applySepiaEffect(MultipartFile imageFile)
-    Applies a sepia effect to the image.
+    Sepia Effect:
+        Method: applySepiaEffect(MultipartFile imageFile)
+        Applies a sepia effect to the image.
 
-Sharpen Effect:
-    Method: applySharpenEffect(float amount, MultipartFile imageFile)
-    Sharpens the image.
+    Sharpen Effect:
+        Method: applySharpenEffect(float amount, MultipartFile imageFile)
+        Sharpens the image.
 
-Dominant Colour Effect:
-    Method: getDominantColour(MultipartFile imageFile)
-    Identifies the dominant color from the image.
+    Dominant Colour Effect:
+        Method: getDominantColour(MultipartFile imageFile)
+        Identifies the dominant color from the image.
 
 LoggingService
 
