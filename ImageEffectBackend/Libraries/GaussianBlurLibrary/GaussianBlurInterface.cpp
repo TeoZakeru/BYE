@@ -56,7 +56,7 @@ JNIEXPORT jobjectArray JNICALL Java_libraryInterfaces_GaussianBlurInterface_appl
     // Call the function here
     // TODO
 	vector<vector<Pixel>> resultImage = GaussianBlur::applyGaussianBlur(imageVector,radius);
-
+    //getting the resultant image
 
 
 

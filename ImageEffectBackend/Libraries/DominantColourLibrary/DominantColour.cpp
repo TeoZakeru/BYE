@@ -6,31 +6,29 @@ using namespace std;
 struct Triplet {
     int first, second, third;
 
-    // Constructor for convenience
+    //constructor
     Triplet(int f, int s, int t) : first(f), second(s), third(t) {}
 
-    // Overloading the equality operator
+    //overloading the equality operator
     bool operator==(const Triplet& other) const {
         return first == other.first && second == other.second && third == other.third;
     }
 };
 
-// Function to find the triplet with the highest frequency
+//this function finds the triplet with the highest frequency
 Triplet findMostFrequentTriplet(vector<Triplet>& triplets) {
     int size=256;
     vector<vector<vector<int>>> threeDVector(size, vector<vector<int>>(size,vector<int>(size, 0)));
-    Triplet mostFrequentTriplet = triplets[0]; // Initialize with the first triplet
-    // Triplet mostFrequentTriplet = triplets[0]; // Initialize with the first triplet
-    int maxFrequency = 0; // Minimum frequency is 1 since we have at least one occurrence of the first triplet
-
+    Triplet mostFrequentTriplet = triplets[0]; 
+    int maxFrequency = 0; 
     for (const auto& triplet : triplets) {
-        // Increment frequency in the hash table
+        //incrementing frequency in the hash table
         int first=triplet.first;
         int second=triplet.second;
         int third=triplet.third;
         int frequency = threeDVector[first][second][third]++;
         
-        // Update mostFrequentTriplet if necessary
+        //updating mostFrequentTriplet if necessary
         if (frequency > maxFrequency) {
             maxFrequency = frequency;
             mostFrequentTriplet = triplet;
@@ -41,7 +39,8 @@ Triplet findMostFrequentTriplet(vector<Triplet>& triplets) {
 }
 
 vector<vector<Pixel>> DominantColour::applyDominantColour(vector<vector<Pixel>> &image) {
-    vector<vector<Pixel>> resultImage;
+    //applyDominantColour method in DominantColour class
+    vector<vector<Pixel>> resultImage;//the resultvector
     vector<Pixel>pix;
 
     for(auto i:image){
@@ -55,20 +54,20 @@ vector<vector<Pixel>> DominantColour::applyDominantColour(vector<vector<Pixel>> 
         pixels.push_back(t);
     }
 
-    Triplet maxx = findMostFrequentTriplet(pixels);
+    Triplet maxx = findMostFrequentTriplet(pixels);//finding the most frequent triplet
     Pixel maxPixel;
     maxPixel.r = maxx.first;
     maxPixel.g = maxx.second;
     maxPixel.b = maxx.third;
 
-        // Apply the dominant Pixel to all pixels in the result image
+    //applying the dominant Pixel to all pixels in the result image
     for (auto &row : image) {
-        vector<Pixel> resultRow;
+        vector<Pixel> resultRow;//temporary vector
         for (auto &pixel : row) {
             resultRow.push_back(maxPixel);
         }
         resultImage.push_back(resultRow);
     }
 
-    return resultImage;
+    return resultImage;//returning the modified image vector
 }

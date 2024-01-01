@@ -1,3 +1,5 @@
+#ifndef ROTATION_H
+#define ROTATION_H
 #pragma once
 #include "../Pixel.h"//including the pixel class definition
 #include <vector>
@@ -9,3 +11,4 @@ class Rotation {
 public:
     static vector<vector<Pixel>> applyRotation(vector<vector<Pixel>>& image,int value);
 };
+#endif

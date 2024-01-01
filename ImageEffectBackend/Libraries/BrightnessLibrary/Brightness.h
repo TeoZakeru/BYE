@@ -1,3 +1,5 @@
+#ifndef BRIGHTNESS_H
+#define BRIGHTNESS_H
 #pragma once
 #include "../Pixel.h"//including the pixel class definition
 #include <vector>
@@ -9,3 +11,4 @@ class Brightness {
 public:
     static vector<vector<Pixel>> applyBrightness(vector<vector<Pixel>>& image, float amount);
 };
+#endif

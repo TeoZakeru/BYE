@@ -1,3 +1,5 @@
+#ifndef CONTRAST_H
+#define CONTRAST_H
 #pragma once
 #include "../Pixel.h"//including the pixel class definition
 #include <vector>
@@ -9,3 +11,4 @@ class Contrast {
 public:
     static vector<vector<Pixel>> applyContrast(vector<vector<Pixel>>& image, float amount);
 };
+#endif

@@ -55,6 +55,7 @@ JNIEXPORT jobjectArray JNICALL Java_libraryInterfaces_SharpenInterface_applyShar
 
     // Call the function here
     vector<vector<Pixel>> resultImage = Sharpen::applySharpen(imageVector,amount);
+    //getting the resultant image
     // TODO
 
 

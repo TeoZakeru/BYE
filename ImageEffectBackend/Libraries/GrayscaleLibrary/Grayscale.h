@@ -1,3 +1,5 @@
+#ifndef GRAYSCALE_H
+#define GRAYSCALE_H
 #pragma once
 #include "../Pixel.h"//including the pixel class definition
 #include <vector>
@@ -9,3 +11,4 @@ class Grayscale {
 public:
     static vector<vector<Pixel>> applyGrayscale(vector<vector<Pixel>>& image);
 };
+#endif

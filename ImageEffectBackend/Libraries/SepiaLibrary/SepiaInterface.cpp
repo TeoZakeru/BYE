@@ -52,7 +52,7 @@ JNIEXPORT jobjectArray JNICALL Java_libraryInterfaces_SepiaInterface_applySepia
 
 
     vector<vector<Pixel>>result = Sepia::applySepia(imageVector);
-
+    //getting the resultant image
     // Call the function here
     // TODO
 

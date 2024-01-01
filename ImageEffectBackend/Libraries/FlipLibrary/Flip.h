@@ -1,3 +1,5 @@
+#ifndef FLIP_H
+#define FLIP_H
 #pragma once
 #include "../Pixel.h"//including the pixel class definition
 #include <vector>
@@ -9,3 +11,4 @@ class Flip {
 public:
     static vector<vector<Pixel>> applyFlip(vector<vector<Pixel>>& image,int horizantalFlipValue,int verticalFlipValue);
 };
+#endif

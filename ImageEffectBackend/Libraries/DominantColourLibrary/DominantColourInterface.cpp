@@ -55,6 +55,7 @@ JNIEXPORT jobjectArray JNICALL Java_libraryInterfaces_DominantColourInterface_ap
 
     // Call the function here
     vector<vector<Pixel>>result = DominantColour::applyDominantColour(imageVector);
+    //getting the resultant image
     // TODO
 
 
